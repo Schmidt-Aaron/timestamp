@@ -4,7 +4,8 @@
   "description": "FCC backend project - Time stamp micro service",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "path": "^0.12.7"
   },
   "devDependencies": {},
   "scripts": {
