@@ -1,9 +1,15 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var http = require('http');
 
 //sets folder to be used for static elements /sets homepage
 app.use(express.static(path.join(__dirname, '/public')));
+
+app.all('*', function(req, res, next) {
+    res.writeHead(200, {"Content-Type": "text/plain"});
+    next();
+});
 
 //does stuff with the added strings
 app.get('/:str', function(req, res) {
@@ -27,6 +33,6 @@ function check(date){
 function convert(date); 
 
 //inits server at port 3000
-app.listen(3000, function(){
+http.createServer(app).listen(3000, function(){
     console.log("server is running at 3000 port")
 });
