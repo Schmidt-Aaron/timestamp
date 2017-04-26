@@ -21,4 +21,3 @@ function getDate(str){
 
     return finalDate;
 }
-getDate(996244800);
