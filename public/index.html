@@ -8,9 +8,28 @@
     <link rel='stylesheet' type="text/css" href="css/style.css">
 </head>
 <body>
-    <h1>Time Stamp Service</h1>
-    <p>Enter in a natural or unix time and this service will convert them</p>
+    <header>
+        <h1>FCC Timestamp Microservice</h1>
+    </header>
+    <main>
+        <p>This is a small full stack js application that I built as part of the the Free Code Camp curriculum.
+It uses node, express.js, and moment.js to perform the requirements below. 
+    </p>
+    <ul>
+        <li><span class="bold">User Story:</span> I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016).</li>
+        <li><span class="bold">User Story:</span> If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
+        <li><span class="bold">User Story:</span> If it does not contain a date or Unix timestamp, it returns null for those properties.</li> 
+    </ul>
+    <h2>Examples</h2>
+    <ol>
+        <li>Using an unix time string: e.g. <a href="/996244800" target="_blank">996244800</a></li>
+        <li>Using a natural time string: e.g <a href="/Jan 18th 2017" target="_blank">Jan 18th 2017</a></li>    
+    </ol> 
     <p class="js"></p>
+    </main>
+    <footer>
+        Created by Aaron
+    </footer>
 </body>
 <script type="text/javascript" src="js/functions.js"></script>
 </html>

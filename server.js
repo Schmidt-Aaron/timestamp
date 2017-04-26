@@ -20,34 +20,39 @@ app.get('/:str', function(req, res) {
         "unix" : null,
         "natural" : null
     }
+    //our date check and conversion using moment.js 
     if(Number(str) >= 0) {
         finalDate.unix = Number(str);
-        finalDate.natural = moment.unix(Number(date)).format("MMMM D, YYYY")
+        finalDate.natural = moment.unix(Number(str)).format("MMMM D, YYYY")
     }
     if(isNaN(Number(str)) && moment(str, "MMM D, YYYY").isValid()) {
         finalDate.unix = moment(str, "MMMM D, YYYY").format("X");
         finalDate.natural = str;
     }
     res.send(finalDate);
-    //res.send({ 'unix': unix + 'natural:'+ natural  });
-    console.log(str);
+    
+    //res.send({ 
+    //      'unix': unix, 
+    //      'natural': natural  });
+    //console.log(str);
     
     // var date = new Date().toLocaleDateString();
     // res.send(date);
 
 
 });
-//checks to see if the string is a date
-function check(date){
 
-}
+//using moment.js to simplify logic
+// //checks to see if the string is a date
+// function check(date){}
 
-//converts the string
-function convert(date) {} 
+// //converts the string
+// function convert(date) {} 
+
 //creates server and set it to listen
 http.createServer(app);
-//var port = process.env.PORT ||'3000';
-//app.set('port', port)
-app.listen(3000, function(){
+var port = process.env.PORT ||'3000';
+app.set('port', port);
+app.listen(port, function(){
     console.log("server is running at localhost: ${port}")
 });
