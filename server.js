@@ -7,11 +7,6 @@ var moment = require('moment');
 //sets folder to be used for static elements /sets homepage
 app.use(express.static(path.join(__dirname, '/public')));
 
-// app.all('*', function(req, res, next) {
-//     res.writeHead(200, {"Content-Type": "text/plain"});
-//     next();
-// });
-
 //does stuff with the added strings
 app.get('/:str', function(req, res) {
     //captured parameter
@@ -20,34 +15,21 @@ app.get('/:str', function(req, res) {
         "unix" : null,
         "natural" : null
     }
-    //our date check and conversion using moment.js 
+    //our date check and conversion using moment.js
+    //deals with unix 
     if(Number(str) >= 0) {
         finalDate.unix = Number(str);
         finalDate.natural = moment.unix(Number(str)).format("MMMM D, YYYY")
     }
+    //deals with natural dates
     if(isNaN(Number(str)) && moment(str, "MMM D, YYYY").isValid()) {
         finalDate.unix = moment(str, "MMMM D, YYYY").format("X");
         finalDate.natural = str;
     }
-    res.send(finalDate);
-    
-    //res.send({ 
-    //      'unix': unix, 
-    //      'natural': natural  });
-    //console.log(str);
-    
-    // var date = new Date().toLocaleDateString();
-    // res.send(date);
 
+    res.send(finalDate);
 
 });
-
-//using moment.js to simplify logic
-// //checks to see if the string is a date
-// function check(date){}
-
-// //converts the string
-// function convert(date) {} 
 
 //creates server and set it to listen
 http.createServer(app);

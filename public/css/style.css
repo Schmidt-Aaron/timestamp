@@ -1,6 +1,9 @@
 h1{
     font-size: 2em;
 }
+header, footer {
+    text-align: center;
+}
 .bold{
     font-weight: bold;
 }
